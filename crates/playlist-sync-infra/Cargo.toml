@@ -1,9 +1,21 @@
+# crates/playlist-sync-infra/Cargo.toml
 [package]
 name = "playlist-sync-infra"
 version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+edition = "2021"
 
 [lints]
 workspace = true
+
+[dependencies]
+playlist-sync-domain = { path = "../playlist-sync-domain" }
+playlist-sync-app = { path = "../playlist-sync-app" }
+axum.workspace = true
+sqlx.workspace = true
+reqwest.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+chrono.workspace = true

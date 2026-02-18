@@ -1,9 +1,14 @@
+# crates/playlist-sync-domain/Cargo.toml
 [package]
 name = "playlist-sync-domain"
 version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+edition = "2021"
 
 [lints]
 workspace = true
+
+[dependencies]
+thiserror.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+serde.workspace = true
