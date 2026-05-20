@@ -1,11 +1,12 @@
 use std::fs;
 
 mod deezer;
-use deezer::DeezerPlaylist;
+use deezer::PlaylistDto;
 
+const DEEZER_PLAYLIST_FILE_PATH: &str = "./DeezerPlaylist.json";
 fn main() -> anyhow::Result<()> {
-    let playlist_data = fs::read_to_string("./DeezerPlaylist.json")?;
-    let deezer_playlist: DeezerPlaylist = serde_json::from_str(&playlist_data)?;
-    println!("playlist id is: {}", deezer_playlist.id);
+    let playlist_json = fs::read_to_string(DEEZER_PLAYLIST_FILE_PATH)?;
+    let playlist: PlaylistDto = serde_json::from_str(&playlist_json)?;
+    println!("playlist id is: {:#?}", playlist.id);
     Ok(())
 }
