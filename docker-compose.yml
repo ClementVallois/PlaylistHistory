@@ -1,0 +1,17 @@
+services:
+  postgres-api:
+          image: postgres:18.1
+          ports:
+              - "${DB_API_PORT}:5432"
+          volumes:
+              - postgresql-data-api:/var/lib/postgresql
+          env_file:
+              - ./.env
+          restart: on-failure
+          environment:
+              - POSTGRES_PORT=${DB_API_PORT}
+              - POSTGRES_USER=${DB_API_USER}
+              - POSTGRES_PASSWORD=${DB_API_PASSWORD}
+              - POSTGRES_DB=${DB_API_NAME}
+volumes:
+    postgresql-data-api:
